@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/coming_soon.css" />
+    <title>Coming Soon</title>
+  </head>
+  <body>
+    <video loop autoplay muted id="bg-vid">
+      <source src="videos/bg_coming_soon.mp4" type="video/mp4" />
+    </video>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+
+    <div class="first-screen" id="fs">
+      <h1>#DemistifyingFuture</h1>
+    </div>
+
+    <div class="second-screen" id="ss">
+      <div class="top-bar">
+        <img src="images/aarohan-logo.png" alt="" />
+        <img src="images/nit-dgp-white.png" alt="" />
+      </div>
+
+      <main>
+        <h1 class="second-screen-header">Aarohan 2022</h1>
+        <h3 class="second-screen-subheader">Starts in</h3>
+        <div class="second-screen-timer">
+          <div class="days-container timer-container">
+            <p class="days">02</p>
+            <p class="days-caption">Days</p>
+          </div>
+
+          <div class="hours-container timer-container">
+            <p class="hours">11</p>
+            <p class="hours-caption">Hours</p>
+          </div>
+
+          <div class="minutes-container timer-container">
+            <p class="minutes">44</p>
+            <p class="minutes-caption">Mins</p>
+          </div>
+        </div>
+      </main>
+    </div>
+    <h1 class="watermark">#DemistifyingFuture</h1>
+    <script src="/js/animation.js"></script>
+    <script>
+      const deadline = new Date('march 03, 2022').getTime()
+      setInterval(() => {
+        let now = new Date().getTime()
+        let t = deadline - now
+        let days = Math.floor(t / (1000 * 60 * 60 * 24))
+        let hours = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+        let minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60))
+        let seconds = Math.floor((t % (1000 * 60)) / 1000)
+        days = days > 0 ? days : `0${days}`
+        hours = hours > 0 ? hours : `0${hours}`
+        minutes = minutes > 0 ? minutes : `0${minutes}`
+        document.querySelector('.days').innerHTML = days
+        document.querySelector('.hours').innerHTML = hours
+        document.querySelector('.minutes').innerHTML = minutes
+      }, 1000)
+    </script>
+  </body>
+</html>
